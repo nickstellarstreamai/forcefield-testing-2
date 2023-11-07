@@ -1,29 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Forcefield Bot Test</title>
-</head>
-<body>
-    <script type="text/javascript">
-        // Function to load the Voiceflow chatbot
-        function loadVoiceflowChatbot() {
-            window.voiceflow.chat.load({
-                verify: { projectID: '6528938ad74d3b0007460405' },
-                url: 'https://general-runtime.voiceflow.com',
-                versionID: 'production'
-            });
-        }
-
-        // Load the script and set a timeout to call the function after 10 seconds
-        (function(d, t) {
-            var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-            v.onload = function() {
-                // Set a timeout to load the chatbot after 10000 milliseconds (10 seconds)
-                setTimeout(loadVoiceflowChatbot, 10000);
-            };
-            v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
-        })(document, 'script');
-    </script>
-</body>
-</html>
+<script type="text/javascript">
+    (function(d, t) {
+      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      v.onload = function() {
+        window.voiceflow.chat.load({
+          verify: { projectID: '6528938ad74d3b0007460405' },
+          url: 'https://general-runtime.voiceflow.com',
+          versionID: 'production'
+        });
+      };
+      v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+    })(document, 'script');
+  
+    window.onload = function() {
+      window.voiceflow.chat.open();
+    };
+  </script>
